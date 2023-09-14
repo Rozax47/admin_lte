@@ -4,8 +4,9 @@
   
 @section('nav')
     
-    <form action="" method="post">
-        <a href="/login" class="nav-link">Log out</a>
+    <form action="/logout" method="post">
+        @csrf
+        <button type="submit" class="nav-link">Log out</button>
     </form>
 
 @endsection

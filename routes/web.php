@@ -26,15 +26,15 @@ Route::get('/', function () {
         'subjudul' => 'Sepuh Library',
         'notif' => 'Akumah Masih Pemula'
     ]);
-});
+})->middleware('petugas');
 
-Route::resource('/dashboard/siswa', SiswaController::class);
+Route::resource('/dashboard/siswa', SiswaController::class)->middleware('petugas');
 
-Route::resource('/dashboard/petugas', PetugasController::class);
+Route::resource('/dashboard/petugas', PetugasController::class)->middleware('petugas');
 
-Route::resource('/dashboard/buku', BukuController::class);
+Route::resource('/dashboard/buku', BukuController::class)->middleware('petugas');
 
-Route::resource('/dashboard/peminjaman', PeminjamanController::class);
+Route::resource('/dashboard/peminjaman', PeminjamanController::class)->middleware('petugas');
 
 Route::get('/login', [LoginController::class, 'index']);
 
